@@ -27,6 +27,8 @@ def video_proc():
             c = max(c, key=cv2.contourArea)
             x,y,w,z = cv2.boundingRect(c)
             cv2.rectangle(frame, (x,y), (x+w, y+z), (0,255,0), 2)
+            stroka = str(x) + "," + str(y)
+            cv2.putText(frame, stroka, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 0.5, 255, bottomLeftOrigin=False)
 
 
         cv2.imshow('frame',frame)
